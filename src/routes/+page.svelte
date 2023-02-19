@@ -2,6 +2,8 @@
 	import './styles.css';
 	import Editor from './home/Editor/Editor.svelte';
 	import Viewer from './home/Viewer/Viewer.svelte';
+	import Frames from './home/Frames/Frames.svelte';
+	import Controls from './home/Controls/Controls.svelte';
 </script>
 
 <main>
@@ -12,7 +14,14 @@
 		<Editor />
 	</section>
 </main>
-<aside />
+<aside>
+	<section>
+		<Frames />
+	</section>
+	<section>
+		<Controls />
+	</section>
+</aside>
 
 <style>
 	main {
@@ -22,7 +31,6 @@
 		justify-content: stretch;
 		width: 480px;
 		height: 854px;
-		background-color: #fff;
 	}
 
 	section {
