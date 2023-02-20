@@ -21,9 +21,17 @@
 				theme: 'ace/theme/cobalt',
 				useWorker: false
 			});
-			$editor.on('change', () => ($code = $editor.getValue()));
+			$editor.on('change', () => ($code = $editor?.getValue() ?? ''));
 		}
 	});
+
+	$: onChange($code);
+	function onChange(value: string) {
+		if ($editor && $editor.getValue() !== value) {
+			$editor.setValue(value);
+			$editor.clearSelection();
+		}
+	}
 
 	onDestroy(() => {
 		$editor?.destroy();
@@ -33,8 +41,8 @@
 <div bind:this={container} />
 
 <style>
-    div {
-        width: 100%;
-        height: 100%;
-    }
+	div {
+		width: 100%;
+		height: 100%;
+	}
 </style>

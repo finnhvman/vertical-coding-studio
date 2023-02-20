@@ -33,7 +33,19 @@
 		height: 854px;
 	}
 
+	aside {
+		flex: 1 1 auto;
+		display: flex;
+		flex-flow: row nowrap;
+		align-items: stretch;
+		justify-items: stretch;
+	}
+
 	section {
 		flex: 1 1 0;
+	}
+
+	aside > section {
+		border-left: solid 8px #ccc;
 	}
 </style>
