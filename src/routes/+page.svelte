@@ -2,17 +2,22 @@
 	import './styles.css';
 	import Editor from './home/Editor/Editor.svelte';
 	import Viewer from './home/Viewer/Viewer.svelte';
+	import Overlay from './home/Overlay/Overlay.svelte';
 	import Frames from './home/Frames/Frames.svelte';
 	import Controls from './home/Controls/Controls.svelte';
+	import editor from './home/Controls/editor';
+
+	$: hidden = !$editor;
 </script>
 
 <main>
 	<section>
 		<Viewer />
 	</section>
-	<section>
+	<section class:hidden>
 		<Editor />
 	</section>
+	<Overlay />
 </main>
 <aside>
 	<section>
@@ -25,6 +30,7 @@
 
 <style>
 	main {
+		position: relative;
 		display: flex;
 		flex-flow: column nowrap;
 		align-items: stretch;
@@ -43,6 +49,10 @@
 
 	section {
 		flex: 1 1 0;
+	}
+
+	section.hidden {
+		flex: 0 0 0;
 	}
 
 	aside > section {
